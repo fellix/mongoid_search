@@ -10,7 +10,7 @@ module Util
       gsub(/[^[:alnum:]\s]/,'').   # strip accents
       downcase.
       split(' ').
-      reject { |word| word.size < 2 }
+      reject { |word| word.empty? }
     text = text.reject { |word| ignore_list.include?(word) } unless ignore_list.blank?
     text = text.map(&:stem) if stem_keywords
     text
