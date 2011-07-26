@@ -34,7 +34,7 @@ module Util
       gsub(/[^[:alnum:]\s]/,'').   # strip accents
       downcase.
       split(' ').
-      reject { |word| word.empty? }
+      reject { |word| word.size < 2 }
     text = text.reject { |word| ignore_list.include?(word) } unless ignore_list.blank?
     text = text.map(&:stem) if stem_keywords
     text
